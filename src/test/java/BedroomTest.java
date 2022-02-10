@@ -20,7 +20,17 @@ public class BedroomTest {
     }
 
     @Test
-    public void doubleHasValue(){
+    public void singleHasValue1(){
         assertEquals(1, bedroom.getValueFromEnum());
+    }
+
+    @Test
+    public void hasCapacity(){
+        assertEquals(1, bedroom.getCapacity());
+    }
+
+    @Test
+    public void startsWithNoGuests(){
+        assertEquals(0, bedroom.getGuests().size());
     }
 }

@@ -18,5 +18,4 @@ public class GuestTest {
         assertEquals("John Smith", guest.getName());
     }
 
-
 }

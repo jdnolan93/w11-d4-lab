@@ -7,7 +7,7 @@ import Room.ConferenceRoom;
 import Guest.Guest;
 
 import java.util.ArrayList;
-import java.util.Collection;
+
 
 public class Hotel {
     ArrayList<Bedroom> bedrooms;

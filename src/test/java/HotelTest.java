@@ -1,13 +1,54 @@
+import Hotel.Hotel;
+import Guest.Guest;
+import Room.Bedroom;
+import Room.RoomType;
 import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class HotelTest {
 
-//    Hotel hotel;
-//    Room room;
-//
-//    @Before
-//    public void before(){
-//        room = new Room();
-//        hotel = new Hotel();
-//    }
+    Hotel hotel;
+    Guest guest;
+    Bedroom bedroom;
+
+
+    @Before
+    public void before(){
+        hotel = new Hotel();
+        guest = new Guest("Jamie");
+        bedroom = new Bedroom(RoomType.SINGLE);
+    }
+
+    @Test
+    public void hasTwoConferenceRooms(){
+        assertEquals(2, hotel.getConferenceRooms().size());
+    }
+
+    @Test
+    public void hasTenBedrooms(){
+        assertEquals(10, hotel.getBedrooms().size());
+    }
+
+    @Test
+    public void hasFiveSingleRooms(){
+        assertEquals(5, hotel.getSingleRooms().size());
+    }
+
+    @Test
+    public void hasFiveDoubleRooms(){
+        assertEquals(5, hotel.getDoubleRooms().size());
+    }
+
+    @Test
+    public void hotelCanGetGuestCount(){
+        assertEquals(0, hotel.getRoomGuests().size());
+    }
+
+    @Test
+    public void hotelCanCheckInGuest(){
+        hotel.checkIn(guest, 0);
+        assertEquals(1, hotel.getRoomGuests().size());
+    }
 }

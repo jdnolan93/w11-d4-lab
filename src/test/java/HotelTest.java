@@ -43,12 +43,23 @@ public class HotelTest {
 
     @Test
     public void hotelCanGetGuestCount(){
-        assertEquals(0, hotel.getRoomGuests().size());
+        assertEquals(0, hotel.getRoomGuests());
     }
 
     @Test
     public void hotelCanCheckInGuest(){
         hotel.checkIn(guest, 0);
-        assertEquals(1, hotel.getRoomGuests().size());
+        assertEquals(1, hotel.getRoomGuests());
+    }
+
+    @Test
+    public void hotelCanCheckOutGuest(){
+        hotel.checkIn(guest, 0);
+        hotel.checkIn(guest, 1);
+        hotel.checkIn(guest, 2);
+        hotel.checkIn(guest, 3);
+        hotel.checkOut(guest, 3);
+        hotel.getRoomGuests();
+        assertEquals(3, hotel.getRoomGuests());
     }
 }

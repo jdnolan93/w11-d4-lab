@@ -67,14 +67,15 @@ public class Hotel {
         return doublerooms;
     }
 
-    public ArrayList<Guest> getRoomGuests(){
+    public int getRoomGuests(){
+        int roomGuests = 0;
         for (Bedroom bedroom: this.bedrooms){
             if (bedroom.getGuests().size() != 0) {
-                return bedroom.getGuests();
+                roomGuests += bedroom.getGuests().size();
             }
 
         }
-        return new ArrayList<>();
+        return roomGuests;
     }
 
     public void checkIn(Guest guest, int roomNo){
@@ -82,6 +83,13 @@ public class Hotel {
             this.bedrooms.get(roomNo).addGuest(guest);
         }
 
+    }
+
+    public void checkOut(Guest guest, int roomNo){
+        if (this.bedrooms.get(roomNo).getGuests().contains(guest)){
+            this.bedrooms.get(roomNo).getGuests().remove(guest);
+        }
+        else System.out.println("Guest not checked in to this room!");
     }
 
 }
